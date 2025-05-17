@@ -19,7 +19,12 @@ namespace TMG_Inventory
         private HashSet<Collider> hitColliders = new HashSet<Collider>(); // to prevent multiple hits in one swing
         private void Start()
         {
-            anim = GetComponent<Animator>();
+            anim = GetComponentInParent<Animator>();
+
+            if (isPlayer)
+            {
+                attacks = FindAnyObjectByType<PlayerAttacks>();
+            }
         }
         private void OnEnable()
         {
