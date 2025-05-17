@@ -17,7 +17,10 @@ namespace TMG_Inventory
         [SerializeField] private float hitRadius = 0.1f;
         [SerializeField] private LayerMask hitLayers; // Set this to include enemy layers
         private HashSet<Collider> hitColliders = new HashSet<Collider>(); // to prevent multiple hits in one swing
-
+        private void Start()
+        {
+            anim = GetComponent<Animator>();
+        }
         private void OnEnable()
         {
             usingMeleeWeapon = true;
